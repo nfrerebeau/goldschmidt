@@ -1,0 +1,24 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "figures/README-"
+)
+```
+
+# Goldschmidt diagram
+
+Plot Goldschmidt (1934, 1945) diagram with R using `graphics`, `plotrix` and `dplyr`.
+
+## Usage
+
+```{r plot}
+source("goldschmidt.R")
+```
+
