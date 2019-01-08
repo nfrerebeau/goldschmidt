@@ -3,7 +3,7 @@
 Goldschmidt diagram
 ===================
 
-Plot Goldschmidt (1934, 1945) diagram with R using `graphics`, `plotrix` and `dplyr`.
+Plot Goldschmidt (1934, 1945) diagram with R using `graphics` and `plotrix`.
 
 Usage
 -----
