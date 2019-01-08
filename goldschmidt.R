@@ -31,8 +31,10 @@ plot(
 
 # Add labels -------------------------------------------------------------------
 goldschmidt_lab <- as.character(goldschmidt$symbol)
-ion <- which(goldschmidt_lab %in% c("Fe(II)", "Fe(III)", "Ce(III)", "Ce(IV)"))
-goldschmidt_lab[ion] <- c(expression("Fe"^"2+"), 
+ion <- which(goldschmidt_lab %in% c("Mg", "Cu", "Fe(II)", "Fe(III)",
+                                    "Ce(III)", "Ce(IV)"))
+goldschmidt_lab[ion] <- c("Cu\nMg","",
+                          expression("Fe"^"2+"), 
                           expression("Fe"^"3+"), 
                           expression("Ce"^"3+"), 
                           expression("Ce"^"4+"))
