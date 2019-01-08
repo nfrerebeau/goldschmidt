@@ -12,7 +12,7 @@ par(fig = c(0, 1, 0, 1), mar = c(4, 5, 1, 1) + 0.1,
 plot(
   x = goldschmidt$z, y = goldschmidt$r,
   pch = c(17, 16, 0, 15)[interaction(goldschmidt$stokes, goldschmidt$ion, drop = TRUE)],
-  col = c("#4477AA", "#EE6677", "#228833")[goldschmidt$ion],
+  col = c("#EE6677", "#228833", "#4477AA")[goldschmidt$ion],
   xlab = "Ionic charge", ylab = expression("Ionic radius ("*ring(A)*")"),
   xlim = c(0, 7), ylim = c(0, 2),
   bty = "l", xaxs = "i", yaxs = "i"
