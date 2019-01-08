@@ -8,22 +8,11 @@ par(fig = c(0, 1, 0, 1), mar = c(4, 5, 1, 1) + 0.1,
     cex = 1, cex.axis = 1, cex.lab = 1, lwd = 1.2,
     xpd = FALSE, las = 1, pty = "s", new = FALSE)
 
-ionic_potential <- goldschmidt$z / goldschmidt$r
-pch <- dplyr::case_when(
-  ionic_potential < 1 ~ 0,
-  ionic_potential < 3 ~ 15,
-  ionic_potential < 10 ~ 16, TRUE ~ 17
-)
-col <- dplyr::case_when(
-  ionic_potential < 3 ~ "#4477AA",
-  ionic_potential < 10 ~ "#EE6677",
-  TRUE ~ "#228833"
-)
-
 # Plot diagram -----------------------------------------------------------------
 plot(
   x = goldschmidt$z, y = goldschmidt$r,
-  pch = pch, col = col, cex = 1,
+  pch = c(17, 16, 0, 15)[interaction(goldschmidt$stokes, goldschmidt$ion, drop = TRUE)],
+  col = c("#4477AA", "#EE6677", "#228833")[goldschmidt$ion],
   xlab = "Ionic charge", ylab = expression("Ionic radius ("*ring(A)*")"),
   xlim = c(0, 7), ylim = c(0, 2),
   bty = "l", xaxs = "i", yaxs = "i"
@@ -33,7 +22,7 @@ plot(
 goldschmidt_lab <- as.character(goldschmidt$symbol)
 ion <- which(goldschmidt_lab %in% c("Mg", "Cu", "Fe(II)", "Fe(III)",
                                     "Ce(III)", "Ce(IV)"))
-goldschmidt_lab[ion] <- c("Cu\nMg","",
+goldschmidt_lab[ion] <- c("Cu\nMg","", # workaround
                           expression("Fe"^"2+"), 
                           expression("Fe"^"3+"), 
                           expression("Ce"^"3+"), 
